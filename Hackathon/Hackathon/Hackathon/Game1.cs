@@ -52,8 +52,6 @@ namespace Hackathon
                               new Plate(500, -270, 0.2, 1.5, 30, 540, null), 
                               new Plate(480, -420, 0.2, 1.5, 30, 540, null) };
 
-        int x_actionBox = 225;
-
         public enum GameStates
         {
             Menu,
@@ -62,7 +60,6 @@ namespace Hackathon
         }
 
         public static GameStates gamestate;
-
 
         public Game1()
         {
@@ -242,24 +239,14 @@ namespace Hackathon
 
             }
 
-
-
             mouse_x = thisMouse.X;
             mouse_y = thisMouse.Y;
             mouse_down = thisMouse.LeftButton == ButtonState.Pressed;
 
             firstFrame = false;
 
-            if (this.isCorrect() && leftStop && rightStop)
-            {
-                winning = true;
-                currentScore += 200;
-            }
-            else
-            {
-                winning = false;
-            }
-
+            winning = this.isCorrect() && leftStop && rightStop;
+            if (winning) currentScore += 200;
 
             base.Update(gameTime);
         }
@@ -313,11 +300,9 @@ namespace Hackathon
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
             drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
-
 
             for (int i = 0; i < AllPlates.Length; i++)
             {
@@ -332,7 +317,6 @@ namespace Hackathon
 
             spriteBatch.Draw(scoreboard, new Vector2(310, 15), Color.White);
             spriteBatch.DrawString(font, "Score: " + currentScore, new Vector2(313, 15), Color.MintCream);
-            //spriteBatch.DrawString(font, inZone ? "true" : "false", new Vector2(400, 400), Color.Teal);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
             spriteBatch.End();
 

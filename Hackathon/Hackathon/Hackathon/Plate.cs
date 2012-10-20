@@ -13,18 +13,18 @@ namespace Hackathon
 {
     public class Plate : Microsoft.Xna.Framework.Game
     {
-        public Plate(double xOrgin, double yOrgin, double xSpeed, double ySpeed, double yReset, double xReset, Texture2D contents)
+        public Plate(double xOrigin, double yOrigin, double xSpeed, double ySpeed, double yReset, double xReset, Texture2D contents)
         {
             plateColor = Color.White;
             in_zone = false;
             y_reset = yReset;
             x_reset = xReset;
-            x_value = xOrgin;
-            y_value = yOrgin;
+            x_value = xOrigin;
+            y_value = yOrigin;
             x_speed = xSpeed;
             y_speed = ySpeed;
-            x_orgin = xOrgin;
-            y_orgin = yOrgin;
+            x_origin = xOrigin;
+            y_origin = yOrigin;
             plateContents = contents;
         }
         public bool in_zone { get; set; }
@@ -33,8 +33,8 @@ namespace Hackathon
         public double y_value { get; set; }
         public double x_speed { get; set; }
         public double y_speed { get; set; }
-        public double x_orgin { get; set; }
-        public double y_orgin { get; set; }
+        public double x_origin { get; set; }
+        public double y_origin { get; set; }
         public double y_reset { get; set; }
         public double x_reset { get; set; }
         public Texture2D plateContents { get; set; }
@@ -46,7 +46,7 @@ namespace Hackathon
             if (this.y_value >= 650)
             {
                 this.x_value = this.x_reset;
-                //plate.y_value = plate.y_orgin;
+                //plate.y_value = plate.y_origin;
                 this.y_value = this.y_reset;
             }
 
