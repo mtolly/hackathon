@@ -20,6 +20,8 @@ namespace Hackathon
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D sushiSensei;
+        Texture2D sushiSensei2;
+        Texture2D sushiSensei3;
         Texture2D leftTable;
         Texture2D rightTable;
         Texture2D actionBox;
@@ -92,6 +94,8 @@ namespace Hackathon
 
             // TODO: use this.Content to load your game content here
             sushiSensei = this.Content.Load<Texture2D>("Images/chinaman");
+            sushiSensei2 = this.Content.Load<Texture2D>("Images/chinaman2");
+            sushiSensei3 = this.Content.Load<Texture2D>("Images/chinaman3");
             leftTable = this.Content.Load<Texture2D>("Images/leftTable");
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
@@ -325,7 +329,12 @@ namespace Hackathon
 
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
-            drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
+            if (madFace == 0)
+                drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
+            else if (madFace == 1)
+                drawCenter(sushiSensei2, new Vector2(430, 250), Color.White);
+            else
+                drawCenter(sushiSensei3, new Vector2(430, 250), Color.White);
 
             for (int i = 0; i < AllPlates.Length; i++)
             {
