@@ -24,6 +24,8 @@ namespace Hackathon
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
         }
 
         /// <summary>
