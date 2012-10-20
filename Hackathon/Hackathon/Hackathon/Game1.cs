@@ -35,15 +35,15 @@ namespace Hackathon
         LinkedList<Texture2D> left_answers;
         LinkedList<Texture2D> right_answers;
 
-        Plate[] AllPlates = { new Plate(225, 30, -0.5, 1.5, 30, 225), 
-                              new Plate(285, -120, -0.5, 1.5, 30, 225), 
-                              new Plate(345, -270, -0.5, 1.5, 30, 225), 
-                              new Plate(405, -420, -0.5, 1.5, 30, 225), 
+        Plate[] AllPlates = { new Plate(225, 30, -0.5, 1.5, 30, 225, null), 
+                              new Plate(285, -120, -0.5, 1.5, 30, 225, null), 
+                              new Plate(345, -270, -0.5, 1.5, 30, 225, null), 
+                              new Plate(405, -420, -0.5, 1.5, 30, 225, null), 
 
-                              new Plate(480, 30, 0.5, 1.5, 30, 480), 
-                              new Plate(420, -120, 0.5, 1.5, 30, 480), 
-                              new Plate(360, -270, 0.5, 1.5, 30, 480), 
-                              new Plate(300, -420, 0.5, 1.5, 30, 480) };
+                              new Plate(480, 30, 0.5, 1.5, 30, 480, null), 
+                              new Plate(420, -120, 0.5, 1.5, 30, 480, null), 
+                              new Plate(360, -270, 0.5, 1.5, 30, 480, null), 
+                              new Plate(300, -420, 0.5, 1.5, 30, 480, null) };
 
         int x_actionBox = 225;
 
