@@ -19,7 +19,7 @@ namespace Hackathon
             this.question = content.Load<Texture2D>(basename + "q");
             this.left_answer = content.Load<Texture2D>(basename + "a");
             this.left_duds = new LinkedList<Texture2D>();
-            for (int i = 0; i < 3; i++)
+            for (int i = 1; i <= 3; i++)
             {
                 this.left_duds.AddLast(content.Load<Texture2D>(basename + "d" + i));
             }

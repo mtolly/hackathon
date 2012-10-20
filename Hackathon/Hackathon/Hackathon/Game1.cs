@@ -89,13 +89,27 @@ namespace Hackathon
             q10a = this.Content.Load<Texture2D>("Japanese/q10a");
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
-            for (int i = 0; i < AllPlates.Length; i++)
-            {
-                AllPlates[i].plateContents = q10a;
-            }
+            //for (int i = 0; i < AllPlates.Length; i++)
+            //{
+            //    AllPlates[i].plateContents = q10a;
+            //}
+            loadSpanish();
+            loadPlates();
         }
 
         private Texture2D q10a;
+
+        private void loadSpanish()
+        {
+            allQuestions = new List<Question>();
+            questionsToAsk = new List<Question>();
+            for (int i = 1; i <= 5; i++)
+            {
+                Question q = new Question("Spanish/q" + i, this.Content);
+                allQuestions.Add(q);
+                questionsToAsk.Add(q);
+            }
+        }
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
