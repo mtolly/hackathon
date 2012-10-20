@@ -114,7 +114,7 @@ namespace Hackathon
             MediaPlayer.Play(song);
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
-            loadSpanish();
+            loadGerman();
             loadPlates();
         }
 
