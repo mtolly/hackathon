@@ -24,6 +24,8 @@ namespace Hackathon
         Texture2D sushiSensei3;
         Texture2D sushiSensei4;
         Texture2D sushiSensei5;
+        Texture2D leftSlap;
+        Texture2D rightSlap;
         Texture2D leftTable;
         Texture2D rightTable;
         Texture2D actionBox;
@@ -101,6 +103,8 @@ namespace Hackathon
             sushiSensei3 = this.Content.Load<Texture2D>("Images/chinaman3");
             sushiSensei4 = this.Content.Load<Texture2D>("Images/chinaman4");
             sushiSensei5 = this.Content.Load<Texture2D>("Images/chinaman5");
+            leftSlap = this.Content.Load<Texture2D>("Images/left_slap");
+            rightSlap = this.Content.Load<Texture2D>("Images/right_slap");
             leftTable = this.Content.Load<Texture2D>("Images/leftTable");
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
@@ -358,6 +362,17 @@ namespace Hackathon
                 drawCenter(sushiSensei3, new Vector2(430, 250), Color.White);
             else
                 drawCenter(sushiSensei5, new Vector2(430, 250), Color.White);
+
+
+            if (leftStop)
+            {
+                drawCenter(leftSlap, new Vector2(430, 250), Color.White);
+            }
+
+            if (rightStop)
+            {
+                drawCenter(rightSlap, new Vector2(430, 250), Color.White);
+            }
             if (!gameEnd)
             {
                 drawCenter(logo, new Vector2(400, 570), Color.White);
