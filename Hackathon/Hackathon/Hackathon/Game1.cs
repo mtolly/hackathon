@@ -35,15 +35,15 @@ namespace Hackathon
         LinkedList<Texture2D> left_answers;
         LinkedList<Texture2D> right_answers;
 
-        Plate[] AllPlates = { new Plate(210, 30, -0.6, 1.5), 
-                              new Plate(270, 180, -0.6, 1.5), 
-                              new Plate(330, 330, -0.6, 1.5), 
-                              new Plate(360, 480, -0.6, 1.5), 
+        Plate[] AllPlates = { new Plate(225, 30, -0.5, 1.5, 30, 225), 
+                              new Plate(285, -120, -0.5, 1.5, 30, 225), 
+                              new Plate(345, -270, -0.5, 1.5, 30, 225), 
+                              new Plate(405, -420, -0.5, 1.5, 30, 225), 
 
-                              new Plate(510, 30, 0.6, 1.5), 
-                              new Plate(450, 180, 0.6, 1.5), 
-                              new Plate(390, 330, 0.6, 1.5), 
-                              new Plate(340, 480, 0.6, 1.5) };
+                              new Plate(480, 30, 0.5, 1.5, 30, 480), 
+                              new Plate(420, -120, 0.5, 1.5, 30, 480), 
+                              new Plate(360, -270, 0.5, 1.5, 30, 480), 
+                              new Plate(300, -420, 0.5, 1.5, 30, 480) };
 
         int x_actionBox = 225;
 
@@ -146,8 +146,9 @@ namespace Hackathon
                 AllPlates[i].y_value += AllPlates[i].y_speed;
                 if (AllPlates[i].y_value >= 800)
                 {
-                    AllPlates[i].x_value = AllPlates[i].x_orgin;
-                    AllPlates[i].y_value = AllPlates[i].y_orgin;
+                    AllPlates[i].x_value = AllPlates[i].x_reset;
+                    //AllPlates[i].y_value = AllPlates[i].y_orgin;
+                    AllPlates[i].y_value = AllPlates[i].y_reset;
                 }
                 if (AllPlates[i].y_value >= 350)
                 {

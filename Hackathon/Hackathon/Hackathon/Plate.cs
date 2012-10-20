@@ -7,9 +7,11 @@ namespace Hackathon
 {
     public class Plate : Microsoft.Xna.Framework.Game
     {
-        public Plate(double xOrgin, double yOrgin, double xSpeed, double ySpeed)
+        public Plate(double xOrgin, double yOrgin, double xSpeed, double ySpeed, double yReset, double xReset)
         {
             in_zone = false;
+            y_reset = yReset;
+            x_reset = xReset;
             x_value = xOrgin;
             y_value = yOrgin;
             x_speed = xSpeed;
@@ -24,5 +26,7 @@ namespace Hackathon
         public double y_speed { get; set; }
         public double x_orgin { get; set; }
         public double y_orgin { get; set; }
+        public double y_reset { get; set; }
+        public double x_reset { get; set; }
     }
 }
