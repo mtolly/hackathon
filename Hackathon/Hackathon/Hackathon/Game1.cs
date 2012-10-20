@@ -29,6 +29,7 @@ namespace Hackathon
         Texture2D cursor;
         Texture2D plate;
         Texture2D scoreboard;
+        Texture2D logo;
         Texture2D line;
         SpriteFont font;
         Boolean leftStop = false;
@@ -104,6 +105,7 @@ namespace Hackathon
             plate = this.Content.Load<Texture2D>("Images/plate");
             line = this.Content.Load<Texture2D>("Images/line");
             scoreboard = this.Content.Load<Texture2D>("Images/scoreboard");
+            logo = this.Content.Load<Texture2D>("Images/logo");
             Song song = Content.Load<Song>("japanmusic");  // Put the name of your song in instead of "song_title"
             MediaPlayer.Play(song);
 
@@ -336,6 +338,7 @@ namespace Hackathon
             else
                 drawCenter(sushiSensei3, new Vector2(430, 250), Color.White);
 
+            drawCenter(logo, new Vector2(400, 570), Color.White);
             for (int i = 0; i < AllPlates.Length; i++)
             {
                 double scale_factor = (((float)AllPlates[i].y_value + 170) / (670));
