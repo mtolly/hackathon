@@ -78,7 +78,7 @@ namespace Hackathon
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            sushiSensei = this.Content.Load<Texture2D>("Images/fumanchu");
+            sushiSensei = this.Content.Load<Texture2D>("Images/chinaman");
             leftTable = this.Content.Load<Texture2D>("Images/leftTable");
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
@@ -144,7 +144,7 @@ namespace Hackathon
             {
                 AllPlates[i].x_value += AllPlates[i].x_speed;
                 AllPlates[i].y_value += AllPlates[i].y_speed;
-                if (AllPlates[i].y_value >= 800)
+                if (AllPlates[i].y_value >= 650)
                 {
                     AllPlates[i].x_value = AllPlates[i].x_reset;
                     //AllPlates[i].y_value = AllPlates[i].y_orgin;
@@ -198,28 +198,16 @@ namespace Hackathon
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
-            drawCenter(sushiSensei, new Vector2(400, 450), Color.White);
-            //spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
-            //spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
-            //spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
+            drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
 
             spriteBatch.Draw(line, new Vector2(50, 400), Color.White);
             spriteBatch.Draw(line, new Vector2(550, 400), Color.White);
-
-            //spriteBatch.Draw(plate, new Vector2(plateX, plateY), Color.Violet);
-            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170)/(670)), (((float)plateY + 170)/(670))), SpriteEffects.None, 0f);
-           
-            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f); 
-            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 200)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
-            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 300)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
 
             for (int i = 0; i < AllPlates.Length; i++)
             {
                 spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f); 
             }
-            
-            
-            //spriteBatch.Draw(plate, new Vector2(650, plateY), Color.Thistle);
+
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
 
             spriteBatch.DrawString(font, "KONNICHIWA BITCHEZ", new Vector2(50, 50), Color.MintCream);
