@@ -1,4 +1,4 @@
- using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -27,11 +27,9 @@ namespace Hackathon
         Texture2D plate;
         SpriteFont font;
 
-        int left_selected = 0;
-        int right_selected = 0;
-        Texture2D[] left_answers = {};
-        Texture2D[] right_answers = {};
         Texture2D question;
+        LinkedList<Texture2D> left_answers;
+        LinkedList<Texture2D> right_answers;
 
         int x_actionBox = 225;
         int plateY = -25;
@@ -117,15 +115,6 @@ namespace Hackathon
             mouse_y = thisMouse.Y;
             mouse_down = thisMouse.LeftButton == ButtonState.Pressed;
 
-            if (newPress(Keys.Up))
-                right_selected = mod(right_selected - 1, 4);
-            if (newPress(Keys.Down))
-                right_selected = mod(right_selected + 1, 4);
-            if (newPress(Keys.A))
-                left_selected = mod(left_selected - 1, 4);
-            if (newPress(Keys.Z))
-                left_selected = mod(left_selected + 1, 4);
-
             firstFrame = false;
             base.Update(gameTime);
         }
@@ -168,7 +157,7 @@ namespace Hackathon
             spriteBatch.Draw(plate, new Vector2(725, plateY), Color.Thistle);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
 
-            spriteBatch.DrawString(font, "Left: " + left_selected + ", Right: " + right_selected, new Vector2(50, 50), Color.MintCream);
+            spriteBatch.DrawString(font, "KONNICHIWA BITCHEZ", new Vector2(50, 50), Color.MintCream);
             spriteBatch.End();
 
             base.Draw(gameTime);
