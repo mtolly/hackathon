@@ -23,6 +23,7 @@ namespace Hackathon
         Texture2D rightTable;
         Texture2D actionBox;
         Texture2D background;
+        Texture2D cursor;
         int x_actionBox = 225;
 
 
@@ -62,6 +63,7 @@ namespace Hackathon
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
             background = this.Content.Load<Texture2D>("Images/background");
+            cursor = this.Content.Load<Texture2D>("Images/cursor");
         }
 
         /// <summary>
@@ -88,10 +90,14 @@ namespace Hackathon
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
                 x_actionBox -= 1;
             // TODO: Add your update logic here
-
+            MouseState m = Mouse.GetState();
+            mouse_x = m.X;
+            mouse_y = m.Y;
 
             base.Update(gameTime);
         }
+
+        int mouse_x, mouse_y;
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -108,6 +114,7 @@ namespace Hackathon
             spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
             spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
+            spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
