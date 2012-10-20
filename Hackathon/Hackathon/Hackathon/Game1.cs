@@ -23,6 +23,7 @@ namespace Hackathon
         Texture2D sushiSensei2;
         Texture2D sushiSensei3;
         Texture2D sushiSensei4;
+        Texture2D sushiSensei5;
         Texture2D leftTable;
         Texture2D rightTable;
         Texture2D actionBox;
@@ -99,6 +100,7 @@ namespace Hackathon
             sushiSensei2 = this.Content.Load<Texture2D>("Images/chinaman2");
             sushiSensei3 = this.Content.Load<Texture2D>("Images/chinaman3");
             sushiSensei4 = this.Content.Load<Texture2D>("Images/chinaman4");
+            sushiSensei5 = this.Content.Load<Texture2D>("Images/chinaman5");
             leftTable = this.Content.Load<Texture2D>("Images/leftTable");
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
@@ -339,8 +341,10 @@ namespace Hackathon
                 drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
             else if (madFace == 1)
                 drawCenter(sushiSensei2, new Vector2(430, 250), Color.White);
-            else
+            else if (madFace == 2)
                 drawCenter(sushiSensei3, new Vector2(430, 250), Color.White);
+            else
+                drawCenter(sushiSensei5, new Vector2(430, 250), Color.White);
 
             drawCenter(logo, new Vector2(400, 570), Color.White);
             for (int i = 0; i < AllPlates.Length; i++)
