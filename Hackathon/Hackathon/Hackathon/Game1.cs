@@ -17,6 +17,7 @@ namespace Hackathon
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        Menu menu;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D sushiSensei;
@@ -74,6 +75,8 @@ namespace Hackathon
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            menu = new Menu();
 
             gamestate = GameStates.Menu;
 
@@ -213,6 +216,10 @@ namespace Hackathon
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            //input.Update();
+
+            if (gamestate == GameStates.Running)
+            { 
             lastKeys = thisKeys;
             thisKeys = Keyboard.GetState();
             thisMouse = Mouse.GetState();
@@ -258,8 +265,52 @@ namespace Hackathon
 
             winning = this.isCorrect() && leftStop && rightStop;
             if (winning) currentScore += 200;
+            }//bracket for main game state
+
+            else if (gamestate == GameStates.Menu)
+            {
+                if (this.newPress(Keys.Down) || this.newPress(Keys.Left))
+                {
+                    menu.Iterator++;
+                }
+                else if (this.newPress(Keys.Up) || this.newPress(Keys.Right))
+                {
+                    menu.Iterator--;
+                }
+
+                else if (this.newPress(Keys.Enter))
+                {
+                    if (menu.Iterator == 0)
+                    {
+                        gamestate = GameStates.Running;
+                        loadJapanese();
+                        loadPlates();
+                    }
+                    else if (menu.Iterator == 1)
+                    {
+                        gamestate = GameStates.Running;
+                        loadSpanish();
+                        loadPlates();
+                    }
+                    else if (menu.Iterator == 2)
+                    {
+                        this.Exit();
+                    }
+                    menu.Iterator = 0;
+                }
+            }
+            else if (gamestate == GameStates.End)
+            {
+                if (this.newPress(Keys.Enter))
+                {
+                    gamestate = GameStates.Menu;
+                }
+            }
+
 
             base.Update(gameTime);
+
+
         }
 
         int slidingPlates = 0;
