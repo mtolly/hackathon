@@ -186,11 +186,16 @@ namespace Hackathon
                     //AllPlates[i].y_value = AllPlates[i].y_orgin;
                     AllPlates[i].y_value = AllPlates[i].y_reset;
                 }
-                if (AllPlates[i].y_value >= 350)
+
+                if (AllPlates[i].y_value >= 450)
                 {
                     AllPlates[i].in_zone = true;
                 }
                 else
+                {
+                    AllPlates[i].in_zone = false;
+                }
+                if (AllPlates[i].in_zone && AllPlates[i].y_value >= 600)
                 {
                     AllPlates[i].in_zone = false;
                 }
@@ -241,8 +246,13 @@ namespace Hackathon
 
             for (int i = 0; i < AllPlates.Length; i++)
             {
-                spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f);
-                spriteBatch.Draw(AllPlates[i].plateContents, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f); 
+                Color plateColor = Color.White;
+                if (AllPlates[i].in_zone)
+                {
+                    plateColor = Color.Yellow;
+                }
+                spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f);
+                spriteBatch.Draw(AllPlates[i].plateContents, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f); 
             }
 
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
