@@ -15,7 +15,7 @@ namespace Hackathon
     {
         public Plate(double xOrgin, double yOrgin, double xSpeed, double ySpeed, double yReset, double xReset, Texture2D contents)
         {
-            plateColor = 255;
+            plateColor = Color.White;
             in_zone = false;
             y_reset = yReset;
             x_reset = xReset;
@@ -28,7 +28,7 @@ namespace Hackathon
             plateContents = contents;
         }
         public bool in_zone { get; set; }
-        public int plateColor { get; set; }
+        public Color plateColor { get; set; }
         public double x_value { get; set; }
         public double y_value { get; set; }
         public double x_speed { get; set; }
@@ -41,7 +41,6 @@ namespace Hackathon
 
         public void updatePlate()
         {
-            plateColor = 255;
             this.x_value += this.x_speed;
             this.y_value += this.y_speed;
             if (this.y_value >= 650)
@@ -52,6 +51,16 @@ namespace Hackathon
             }
 
             this.in_zone = 450 <= this.y_value && this.y_value <= 600;
+
+            if (this.in_zone)
+            {
+                int colorVal = (int)(255 - ((this.y_value - 550) / 50) * 255);
+                this.plateColor = new Color(colorVal, colorVal, 0, colorVal);
+            }
+            else
+            {
+                this.plateColor = (this.y_value < 500) ? Color.White : Color.Transparent;
+            }
         }
     }
 }
