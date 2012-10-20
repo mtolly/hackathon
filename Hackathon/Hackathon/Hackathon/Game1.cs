@@ -251,11 +251,47 @@ namespace Hackathon
             winning = this.isCorrect() && leftStop && rightStop;
             if (winning) currentScore += 200;
             }//bracket for main game state
+
+            else if (gamestate == GameStates.Menu)
+            {
+                if (input.RightDown || input.LeftDown)
+                {
+                    menu.Iterator++;
+                }
+                else if (input.RightUp || input.LeftUp)
+                {
+                    menu.Iterator--;
+                }
+
+                if (input.MenuSelect)
+                {
+                    if (menu.Iterator == 0)
+                    {
+                        gamestate = GameStates.Running;
+                        SetUpJapanese();
+                    }
+                    else if (menu.Iterator == 1)
+                    {
+                        gamestate = GameStates.Running;
+                        SetUpSpanish();
+                    }
+                    else if (menu.Iterator == 2)
+                    {
+                        this.Exit();
+                    }
+                    menu.Iterator = 0;
+                }
+            }
+            else if (gamestate == GameStates.End)
+            {
+                if (input.MenuSelect)
+                {
+                    gamestate = GameStates.Menu;
+                }
+            }
+
+
             base.Update(gameTime);
-
-
-
-
 
 
         }
