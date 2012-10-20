@@ -9,6 +9,25 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+class Plate
+{
+    public Plate(int xOrgin, int yOrgin, double xSpeed, double ySpeed)
+    {
+        x_value = xOrgin;
+        y_value = yOrgin;
+        x_speed = xSpeed;
+        y_speed = ySpeed;
+        x_orgin = xOrgin;
+        y_orgin = yOrgin;
+    }
+    public int x_value { get; set; }
+    public int y_value { get; set; }
+    public double x_speed { get; set; }
+    public double y_speed { get; set; }
+    public int x_orgin { get; set; }
+    public int y_orgin { get; set; }
+}
+
 namespace Hackathon
 {
     /// <summary>
@@ -32,9 +51,14 @@ namespace Hackathon
         LinkedList<Texture2D> left_answers;
         LinkedList<Texture2D> right_answers;
 
+        Plate leftPlate = new Plate(210, 25, 1.5, 0.6);
+        Plate rightPlate = new Plate(510, 25, 1.5, 0.6);
+
         int x_actionBox = 225;
         double plateY = 25;
         double plateX = 210;
+
+        
 
         public Game1()
         {
