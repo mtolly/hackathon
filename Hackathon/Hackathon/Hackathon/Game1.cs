@@ -17,7 +17,6 @@ namespace Hackathon
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        Menu menu;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D sushiSensei;
@@ -75,8 +74,6 @@ namespace Hackathon
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
-            menu = new Menu();
 
             gamestate = GameStates.Menu;
 
@@ -216,10 +213,6 @@ namespace Hackathon
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            input.Update();
-
-            if (gamestate == GameStates.Running)
-            { 
             lastKeys = thisKeys;
             thisKeys = Keyboard.GetState();
             thisMouse = Mouse.GetState();
@@ -265,14 +258,8 @@ namespace Hackathon
 
             winning = this.isCorrect() && leftStop && rightStop;
             if (winning) currentScore += 200;
-            }//bracket for main game state
+
             base.Update(gameTime);
-
-
-
-
-
-
         }
 
         int slidingPlates = 0;
