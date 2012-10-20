@@ -32,7 +32,8 @@ namespace Hackathon
         LinkedList<Texture2D> right_answers;
 
         int x_actionBox = 225;
-        int plateY = -25;
+        double plateY = 25;
+        double plateX = 210;
 
         public Game1()
         {
@@ -125,9 +126,13 @@ namespace Hackathon
             if (thisKeys.IsKeyDown(Keys.Left))
                 x_actionBox -= 1;
 
-            plateY += 5;
+            plateY += 2;
+            plateX -= 0.8;
             if (plateY >= 800)
-                plateY = -25;
+            {
+                plateX = 210;
+                plateY = 25;
+            }
 
             mouse_x = thisMouse.X;
             mouse_y = thisMouse.Y;
@@ -168,11 +173,13 @@ namespace Hackathon
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
             drawCenter(sushiSensei, new Vector2(400, 450), Color.White);
-            spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
-            spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
-            spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
-            spriteBatch.Draw(plate, new Vector2(25, plateY), Color.Violet);
-            spriteBatch.Draw(plate, new Vector2(725, plateY), Color.Thistle);
+            //spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
+            //spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
+            //spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
+            
+            //spriteBatch.Draw(plate, new Vector2(plateX, plateY), Color.Violet);
+            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY +170)/(670)), (((float)plateY + 170)/(670))), SpriteEffects.None, 0f);
+            //spriteBatch.Draw(plate, new Vector2(650, plateY), Color.Thistle);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
 
             spriteBatch.DrawString(font, "KONNICHIWA BITCHEZ", new Vector2(50, 50), Color.MintCream);
