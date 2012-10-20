@@ -54,6 +54,16 @@ namespace Hackathon
 
         int x_actionBox = 225;
 
+        public enum GameStates
+        {
+            Menu,
+            Running,
+            End
+        }
+
+        public static GameStates gamestate;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -71,6 +81,8 @@ namespace Hackathon
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            gamestate = GameStates.Menu;
 
             base.Initialize();
         }
