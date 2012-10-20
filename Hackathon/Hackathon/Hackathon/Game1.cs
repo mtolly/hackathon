@@ -22,6 +22,7 @@ namespace Hackathon
         Texture2D leftTable;
         Texture2D rightTable;
         Texture2D actionBox;
+        Texture2D background;
 
         public Game1()
         {
@@ -58,6 +59,7 @@ namespace Hackathon
             leftTable = this.Content.Load<Texture2D>("Images/leftTable");
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
+            background = this.Content.Load<Texture2D>("Images/background");
         }
 
         /// <summary>
@@ -95,6 +97,7 @@ namespace Hackathon
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+            spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
             spriteBatch.Draw(sushiSensei, new Vector2(200, 350), Color.White);
             spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
