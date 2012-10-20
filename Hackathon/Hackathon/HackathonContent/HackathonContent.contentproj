@@ -42,8 +42,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fumanchu.jpg">
+    <Compile Include="Images\actionBox.bmp">
+      <Name>actionBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\fumanchu.jpg">
       <Name>fumanchu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\leftTable.bmp">
+      <Name>leftTable</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\rightTable.bmp">
+      <Name>rightTable</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

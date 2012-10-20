@@ -54,10 +54,10 @@ namespace Hackathon
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            sushiSensei = this.Content.Load<Texture2D>("fumanchu");
-            leftTable = this.Content.Load<Texture2D>("leftTable");
-            rightTable = this.Content.Load<Texture2D>("rightTable");
-            actionBox = this.Content.Load<Texture2D>("actionBox");
+            sushiSensei = this.Content.Load<Texture2D>("Images/fumanchu");
+            leftTable = this.Content.Load<Texture2D>("Images/leftTable");
+            rightTable = this.Content.Load<Texture2D>("Images/rightTable");
+            actionBox = this.Content.Load<Texture2D>("Images/actionBox");
         }
 
         /// <summary>
