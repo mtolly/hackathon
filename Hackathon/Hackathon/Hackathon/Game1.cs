@@ -175,21 +175,8 @@ namespace Hackathon
             if (thisKeys.IsKeyDown(Keys.Left))
                 x_actionBox -= 1;
 
-            // for each plate, adjust it
-            for (int i = 0; i < AllPlates.Length; i++)
-            {
-                Plate plate = AllPlates[i];
-                plate.x_value += plate.x_speed;
-                plate.y_value += plate.y_speed;
-                if (plate.y_value >= 650)
-                {
-                    plate.x_value = plate.x_reset;
-                    //plate.y_value = plate.y_orgin;
-                    plate.y_value = plate.y_reset;
-                }
-
-                plate.in_zone = 450 <= plate.y_value && plate.y_value <= 600;
-            }
+            foreach (Plate p in AllPlates)
+                p.updatePlate();
 
             mouse_x = thisMouse.X;
             mouse_y = thisMouse.Y;

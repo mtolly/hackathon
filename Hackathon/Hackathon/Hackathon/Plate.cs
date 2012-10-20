@@ -36,5 +36,19 @@ namespace Hackathon
         public double y_reset { get; set; }
         public double x_reset { get; set; }
         public Texture2D plateContents { get; set; }
+
+        public void updatePlate()
+        {
+            this.x_value += this.x_speed;
+            this.y_value += this.y_speed;
+            if (this.y_value >= 650)
+            {
+                this.x_value = this.x_reset;
+                //plate.y_value = plate.y_orgin;
+                this.y_value = this.y_reset;
+            }
+
+            this.in_zone = 450 <= this.y_value && this.y_value <= 600;
+        }
     }
 }
