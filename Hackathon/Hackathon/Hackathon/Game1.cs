@@ -95,10 +95,10 @@ namespace Hackathon
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.Draw(sushiSensei, new Vector2(30,200), Color.White);
-            spriteBatch.Draw(leftTable, new Vector2(300, 200), Color.White);
-            spriteBatch.Draw(rightTable, new Vector2(300, 20), Color.White);
-            spriteBatch.Draw(actionBox, new Vector2(60, 500), Color.White);
+            spriteBatch.Draw(sushiSensei, new Vector2(200, 350), Color.White);
+            spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
+            spriteBatch.Draw(actionBox, new Vector2(225, 50), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
