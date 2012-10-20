@@ -5,7 +5,6 @@ Content\Images\rightTable.xnb
 Content\Images\background.xnb
 Content\Images\cursor.xnb
 Content\Images\plate.xnb
-Content\Images\SpriteFont1.xnb
 Content\Images\line.xnb
 Content\Images\chinaman.xnb
 Content\Images\chinaman2.xnb
@@ -108,3 +107,6 @@ Content\Japanese\q6p.xnb
 Content\Japanese\q7p.xnb
 Content\Japanese\q8p.xnb
 Content\Japanese\q9p.xnb
+Content\Images\SpriteFont1.xnb
+Content\japanmusic.xnb
+Content\japanmusic.wma
