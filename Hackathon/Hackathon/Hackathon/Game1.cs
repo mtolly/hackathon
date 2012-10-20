@@ -93,6 +93,8 @@ namespace Hackathon
             plate = this.Content.Load<Texture2D>("Images/plate");
             line = this.Content.Load<Texture2D>("Images/line");
             scoreboard = this.Content.Load<Texture2D>("Images/scoreboard");
+            Song song = Content.Load<Song>("japanmusic");  // Put the name of your song in instead of "song_title"
+            MediaPlayer.Play(song);
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
             loadJapanese();
@@ -214,7 +216,8 @@ namespace Hackathon
             if (this.newPress(Keys.Left))
                 leftStop = !leftStop;
 
-            for(int i = 0; i<AllPlates.Length; i++){
+            for (int i = 0; i < AllPlates.Length; i++)
+            {
                 if (!leftStop && (i < 4))
                 {
                     AllPlates[i].updatePlate();
@@ -223,7 +226,10 @@ namespace Hackathon
                 {
                     AllPlates[i].updatePlate();
                 }
+
             }
+
+
 
             mouse_x = thisMouse.X;
             mouse_y = thisMouse.Y;
@@ -289,10 +295,10 @@ namespace Hackathon
             {
                 double scale_factor = (((float)AllPlates[i].y_value + 170) / (670));
                 spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, AllPlates[i].plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f);
-                spriteBatch.Draw(AllPlates[i].plateContents, new Vector2((int)Math.Ceiling(AllPlates[i].x_value + (150 * scale_factor - (1.25 * AllPlates[i].plateContents.Width * (scale_factor)))), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, AllPlates[i].plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f); 
+                spriteBatch.Draw(AllPlates[i].plateContents, new Vector2((int)Math.Ceiling(AllPlates[i].x_value + (150 * scale_factor - (1.25 * AllPlates[i].plateContents.Width * (scale_factor)))), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, AllPlates[i].plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f);
             }
 
-            
+
 
             spriteBatch.Draw(question, new Vector2(270, 125), Color.White);
 
