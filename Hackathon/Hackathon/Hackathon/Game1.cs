@@ -27,7 +27,7 @@ namespace Hackathon
         Texture2D plate;
         SpriteFont font;
 
-        Texture2D question;
+        Texture2D question, left_correct, right_correct;
         LinkedList<Texture2D> left_answers;
         LinkedList<Texture2D> right_answers;
 
@@ -85,7 +85,25 @@ namespace Hackathon
             // TODO: Unload any non ContentManager content here
         }
 
-        private bool newPress(Keys key) {
+        private void movePlates()
+        {
+            LinkedListNode<Texture2D> left_first = left_answers.First;
+            if (left_first != null)
+            {
+                left_answers.RemoveFirst();
+                left_answers.AddLast(left_first);
+            }
+
+            LinkedListNode<Texture2D> right_first = right_answers.First;
+            if (right_first != null)
+            {
+                right_answers.RemoveFirst();
+                right_answers.AddLast(right_first);
+            }
+        }
+
+        private bool newPress(Keys key)
+        {
             if (firstFrame)
                 return false;
             return lastKeys.IsKeyUp(key) && thisKeys.IsKeyDown(key);
