@@ -92,19 +92,12 @@ namespace Hackathon
             cursor = this.Content.Load<Texture2D>("Images/cursor");
             plate = this.Content.Load<Texture2D>("Images/plate");
             line = this.Content.Load<Texture2D>("Images/line");
-            q10a = this.Content.Load<Texture2D>("Japanese/q10a");
             scoreboard = this.Content.Load<Texture2D>("Images/scoreboard");
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
-            //for (int i = 0; i < AllPlates.Length; i++)
-            //{
-            //    AllPlates[i].plateContents = q10a;
-            //}
-            loadSpanish();
+            loadJapanese();
             loadPlates();
         }
-
-        private Texture2D q10a;
 
         private void loadSpanish()
         {
@@ -113,6 +106,19 @@ namespace Hackathon
             for (int i = 1; i <= 5; i++)
             {
                 Question q = new Question("Spanish/q" + i, this.Content);
+                allQuestions.Add(q);
+                questionsToAsk.Add(q);
+            }
+            this.shuffle<Question>(questionsToAsk);
+        }
+
+        private void loadJapanese()
+        {
+            allQuestions = new List<Question>();
+            questionsToAsk = new List<Question>();
+            for (int i = 1; i <= 11; i++)
+            {
+                Question q = new Question("Japanese/q" + i, this.Content);
                 allQuestions.Add(q);
                 questionsToAsk.Add(q);
             }
@@ -170,7 +176,10 @@ namespace Hackathon
             for (int i = 0; i < 4; i++)
                 b = b || (allQuestions[indexes[i]].right_answer == asking.right_answer);
             if (!b)
-                AllPlates[4].plateContents = asking.right_answer;
+            {
+                Random rng = new Random();
+                AllPlates[rng.Next(4) + 4].plateContents = asking.right_answer;
+            }
         }
 
         private void shuffle<T>(IList<T> list)
@@ -225,6 +234,25 @@ namespace Hackathon
         private int mod(int x, int m)
         {
             return (x % m + m) % m;
+        }
+
+        private bool isCorrect()
+        {
+            bool gotLeft = false;
+            bool gotRight = false;
+            for (int i = 0; i <= 3; i++)
+            {
+                Plate p = AllPlates[i];
+                if (p.in_zone && p.plateContents == left_correct)
+                    gotLeft = true;
+            }
+            for (int i = 4; i <= 7; i++)
+            {
+                Plate p = AllPlates[i];
+                if (p.in_zone && p.plateContents == right_correct)
+                    gotRight = true;
+            }
+            return gotLeft && gotRight;
         }
 
         bool firstFrame = true;
