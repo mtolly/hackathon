@@ -9,9 +9,9 @@ namespace Hackathon
 {
     class Question
     {
-        private Texture2D question;
-        private LinkedList<Texture2D> left_answers;
-        private Texture2D right_answer;
+        public Texture2D question { get; set; }
+        public LinkedList<Texture2D> left_answers { get; set; }
+        public Texture2D right_answer { get; set; }
 
         public Question(String directory, ContentManager content)
         {
