@@ -74,6 +74,8 @@ namespace Hackathon
             background = this.Content.Load<Texture2D>("Images/background");
             cursor = this.Content.Load<Texture2D>("Images/cursor");
             plate = this.Content.Load<Texture2D>("Images/plate");
+
+            font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
         }
 
         /// <summary>
@@ -140,6 +142,8 @@ namespace Hackathon
             spriteBatch.Draw(plate, new Vector2(25, plateY), Color.Violet);
             spriteBatch.Draw(plate, new Vector2(725, plateY), Color.Thistle);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
+
+            spriteBatch.DrawString(font, "KONNICHIWA BITCHEZ", new Vector2(50, 50), Color.MintCream);
             spriteBatch.End();
 
             base.Draw(gameTime);
