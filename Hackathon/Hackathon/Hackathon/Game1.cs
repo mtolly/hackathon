@@ -189,17 +189,23 @@ namespace Hackathon
             thisKeys = Keyboard.GetState();
             thisMouse = Mouse.GetState();
 
-            if (thisKeys.IsKeyDown(Keys.Right))
-                rightStop = true;
-            if (thisKeys.IsKeyDown(Keys.Left))
-                leftStop = true;
 
-            for(int i = 0; i<AllPlates.Length; i+=2){
-                if (!leftStop && (i % 2 == 0))
+            if (thisKeys.IsKeyDown(Keys.Right) && rightStop)
+                rightStop = false;
+            else if (thisKeys.IsKeyDown(Keys.Left) && leftStop)
+                leftStop = false;
+            else if (thisKeys.IsKeyDown(Keys.Right) && !rightStop)
+                rightStop = true;
+            else if (thisKeys.IsKeyDown(Keys.Left) && !leftStop)
+                leftStop = true;
+            
+
+            for(int i = 0; i<AllPlates.Length; i++){
+                if (!leftStop && (i < 4))
                 {
                     AllPlates[i].updatePlate();
                 }
-                if (!leftStop && (i % 2 == 1))
+                if (!rightStop && (i >= 4))
                 {
                     AllPlates[i].updatePlate();
                 }
