@@ -379,7 +379,7 @@ namespace Hackathon
             }
             else
             {
-                drawCenter(logo, new Vector2(400, 350), Color.White);
+                drawCenter(logo, new Vector2(400, 300), Color.White);
             }
             for (int i = 0; i < AllPlates.Length; i++)
             {
