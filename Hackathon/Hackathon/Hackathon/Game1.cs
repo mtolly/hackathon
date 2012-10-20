@@ -153,6 +153,8 @@ namespace Hackathon
             questionsToAsk.RemoveAt(questionsToAsk.Count - 1);
 
             question = asking.question;
+            left_correct = asking.left_answer;
+            right_correct = asking.right_answer;
 
             // Take the correct answer and the three duds, and assign them randomly to left plates
             left_answers = new List<Texture2D>();
