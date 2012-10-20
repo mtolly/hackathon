@@ -47,6 +47,8 @@ namespace Hackathon
         Texture2D line;
         SpriteFont font;
 
+        bool inZone = false;
+
         Texture2D question, left_correct, right_correct;
         LinkedList<Texture2D> left_answers;
         LinkedList<Texture2D> right_answers;
@@ -160,6 +162,11 @@ namespace Hackathon
                 plateY = 25;
             }
 
+            if (plateY >= 350)
+                inZone = true;
+            else
+                inZone = false;
+
             mouse_x = thisMouse.X;
             mouse_y = thisMouse.Y;
             mouse_down = thisMouse.LeftButton == ButtonState.Pressed;
@@ -207,11 +214,20 @@ namespace Hackathon
             spriteBatch.Draw(line, new Vector2(550, 400), Color.White);
 
             //spriteBatch.Draw(plate, new Vector2(plateX, plateY), Color.Violet);
-            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY +170)/(670)), (((float)plateY + 170)/(670))), SpriteEffects.None, 0f);
+            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170)/(670)), (((float)plateY + 170)/(670))), SpriteEffects.None, 0f);
+           
+            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f); 
+            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 200)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
+            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 300)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
+            
+            
+            
+            
             //spriteBatch.Draw(plate, new Vector2(650, plateY), Color.Thistle);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
 
             spriteBatch.DrawString(font, "KONNICHIWA BITCHEZ", new Vector2(50, 50), Color.MintCream);
+            spriteBatch.DrawString(font, inZone ? "true" : "false", new Vector2(400, 400), Color.Teal);
             spriteBatch.End();
 
             base.Draw(gameTime);
