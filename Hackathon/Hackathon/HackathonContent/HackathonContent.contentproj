@@ -121,6 +121,21 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Japanese\q10d1.jpg">
+      <Name>q10d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q10d2.jpg">
+      <Name>q10d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q10d3.jpg">
+      <Name>q10d3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Japanese\q10q.jpg">
       <Name>q10q</Name>
       <Importer>TextureImporter</Importer>
@@ -128,6 +143,21 @@
     </Compile>
     <Compile Include="Japanese\q11a.jpg">
       <Name>q11a</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q11d1.jpg">
+      <Name>q11d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q11d2.jpg">
+      <Name>q11d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q11d3.jpg">
+      <Name>q11d3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -141,6 +171,21 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Japanese\q1d1.jpg">
+      <Name>q1d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q1d2.jpg">
+      <Name>q1d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q1d3.jpg">
+      <Name>q1d3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Japanese\q1q.jpg">
       <Name>q1q</Name>
       <Importer>TextureImporter</Importer>
@@ -148,6 +193,21 @@
     </Compile>
     <Compile Include="Japanese\q2a.jpg">
       <Name>q2a</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q2d1.jpg">
+      <Name>q2d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q2d2.jpg">
+      <Name>q2d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q2d3.jpg">
+      <Name>q2d3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -161,6 +221,21 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Japanese\q3d1.jpg">
+      <Name>q3d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q3d2.jpg">
+      <Name>q3d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q3d3.jpg">
+      <Name>q3d3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Japanese\q3q.jpg">
       <Name>q3q</Name>
       <Importer>TextureImporter</Importer>
@@ -168,6 +243,21 @@
     </Compile>
     <Compile Include="Japanese\q4a.jpg">
       <Name>q4a</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q4d1.jpg">
+      <Name>q4d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q4d2.jpg">
+      <Name>q4d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q4d3.jpg">
+      <Name>q4d3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -181,6 +271,21 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Japanese\q5d1.jpg">
+      <Name>q5d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q5d2.jpg">
+      <Name>q5d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q5d3.jpg">
+      <Name>q5d3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Japanese\q5q.jpg">
       <Name>q5q</Name>
       <Importer>TextureImporter</Importer>
@@ -188,6 +293,21 @@
     </Compile>
     <Compile Include="Japanese\q6a.jpg">
       <Name>q6a</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q6d1.jpg">
+      <Name>q6d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q6d2.jpg">
+      <Name>q6d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q6d3.jpg">
+      <Name>q6d3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -201,6 +321,21 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Japanese\q7d1.jpg">
+      <Name>q7d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q7d2.jpg">
+      <Name>q7d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q7d3.jpg">
+      <Name>q7d3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Japanese\q7q.jpg">
       <Name>q7q</Name>
       <Importer>TextureImporter</Importer>
@@ -211,6 +346,21 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Japanese\q8d1.jpg">
+      <Name>q8d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q8d2.jpg">
+      <Name>q8d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q8d3.jpg">
+      <Name>q8d3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Japanese\q8q.jpg">
       <Name>q8q</Name>
       <Importer>TextureImporter</Importer>
@@ -218,6 +368,21 @@
     </Compile>
     <Compile Include="Japanese\q9a.jpg">
       <Name>q9a</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q9d1.jpg">
+      <Name>q9d1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q9d2.jpg">
+      <Name>q9d2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Japanese\q9d3.jpg">
+      <Name>q9d3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
