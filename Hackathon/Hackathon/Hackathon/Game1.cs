@@ -358,8 +358,14 @@ namespace Hackathon
                 drawCenter(sushiSensei3, new Vector2(430, 250), Color.White);
             else
                 drawCenter(sushiSensei5, new Vector2(430, 250), Color.White);
-
-            drawCenter(logo, new Vector2(400, 570), Color.White);
+            if (!gameEnd)
+            {
+                drawCenter(logo, new Vector2(400, 570), Color.White);
+            }
+            else
+            {
+                drawCenter(logo, new Vector2(400, 350), Color.White);
+            }
             for (int i = 0; i < AllPlates.Length; i++)
             {
                 double scale_factor = (((float)AllPlates[i].y_value + 170) / (670));
