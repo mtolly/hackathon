@@ -50,16 +50,20 @@ namespace Hackathon
                 this.y_value = this.y_reset;
             }
 
-            this.in_zone = 450 <= this.y_value && this.y_value <= 600;
+            this.in_zone = 450 <= this.y_value && this.y_value < 575;
 
-            if (this.in_zone)
+            if (this.y_value >= 575) // fading out
             {
-                int colorVal = (int)(255 - ((this.y_value - 550) / 50) * 255);
-                this.plateColor = new Color(colorVal, colorVal, 0, colorVal);
+                int colorVal = (int)(255 - ((this.y_value - 575) / 50) * 255);
+                this.plateColor = new Color(colorVal, colorVal, colorVal, colorVal);
             }
-            else
+            else if (this.y_value >= 450) // in zone
             {
-                this.plateColor = (this.y_value < 500) ? Color.White : Color.Transparent;
+                this.plateColor = Color.Yellow;
+            }
+            else // on track
+            {
+                this.plateColor = Color.White;
             }
         }
     }
