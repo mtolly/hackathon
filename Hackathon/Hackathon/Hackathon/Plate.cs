@@ -51,11 +51,6 @@ namespace Hackathon
                 this.y_value = this.y_reset;
             }
 
-            if (this.y_value >= 550)
-            {
-                //plateColor -= 100;
-            }
-
             this.in_zone = 450 <= this.y_value && this.y_value <= 600;
         }
     }
