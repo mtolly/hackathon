@@ -144,6 +144,19 @@ namespace Hackathon
             this.shuffle<Question>(questionsToAsk);
         }
 
+        private void loadGerman()
+        {
+            allQuestions = new List<Question>();
+            questionsToAsk = new List<Question>();
+            for (int i = 1; i <= 5; i++)
+            {
+                Question q = new Question("German/q" + i, this.Content);
+                allQuestions.Add(q);
+                questionsToAsk.Add(q);
+            }
+            this.shuffle<Question>(questionsToAsk);
+        }
+
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
