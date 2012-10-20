@@ -116,6 +116,7 @@ namespace Hackathon
                 allQuestions.Add(q);
                 questionsToAsk.Add(q);
             }
+            this.shuffle<Question>(questionsToAsk);
         }
 
         /// <summary>
