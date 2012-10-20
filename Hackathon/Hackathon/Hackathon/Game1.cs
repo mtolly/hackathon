@@ -218,8 +218,6 @@ namespace Hackathon
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
             drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
 
-            spriteBatch.Draw(line, new Vector2(50, 400), Color.White);
-            spriteBatch.Draw(line, new Vector2(550, 400), Color.White);
 
             for (int i = 0; i < AllPlates.Length; i++)
             {
