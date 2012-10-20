@@ -351,21 +351,35 @@ namespace Hackathon
         protected override void Draw(GameTime gameTime)
         {
             SoundEffect hiya = this.Content.Load<SoundEffect>("hiya");
+            SoundEffect correct = this.Content.Load<SoundEffect>("correct");
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
             if (slidingPlates > 0)
+            {
                 drawCenter(sushiSensei4, new Vector2(430, 250), Color.White);
+                if (newPress(Keys.Left) || newPress(Keys.Right))
+                {
+                    correct.Play();
+                }
+            }
             else if (madFace == 0)
+            {
                 drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
+            }
             else if (madFace == 1)
+            {
                 drawCenter(sushiSensei2, new Vector2(430, 250), Color.White);
+            }
             else if (madFace == 2)
+            {
                 drawCenter(sushiSensei3, new Vector2(430, 250), Color.White);
+            }
             else
+            {
                 drawCenter(sushiSensei5, new Vector2(430, 250), Color.White);
-
+            }
 
             if (leftStop)
             {
