@@ -25,6 +25,7 @@ namespace Hackathon
         Texture2D background;
         Texture2D cursor;
         Texture2D plate;
+        Texture2D line;
         SpriteFont font;
 
         Texture2D question, left_correct, right_correct;
@@ -73,6 +74,7 @@ namespace Hackathon
             background = this.Content.Load<Texture2D>("Images/background");
             cursor = this.Content.Load<Texture2D>("Images/cursor");
             plate = this.Content.Load<Texture2D>("Images/plate");
+            line = this.Content.Load<Texture2D>("Images/line");
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
         }
@@ -176,7 +178,10 @@ namespace Hackathon
             //spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
             //spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
             //spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
-            
+
+            spriteBatch.Draw(line, new Vector2(50, 400), Color.White);
+            spriteBatch.Draw(line, new Vector2(550, 400), Color.White);
+
             //spriteBatch.Draw(plate, new Vector2(plateX, plateY), Color.Violet);
             spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY +170)/(670)), (((float)plateY + 170)/(670))), SpriteEffects.None, 0f);
             //spriteBatch.Draw(plate, new Vector2(650, plateY), Color.Thistle);
