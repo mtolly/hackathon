@@ -31,12 +31,8 @@ namespace Hackathon
         SpriteFont font;
         Boolean leftStop = false;
         Boolean rightStop = false;
-        Boolean buttonDebounce = false;
         int currentScore = 0;
-        int buttonCounter = 0;
         Boolean winning = false;
-
-        bool inZone = false;
 
         Texture2D question, left_correct, right_correct;
         List<Texture2D> left_answers;
@@ -143,7 +139,7 @@ namespace Hackathon
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            // Unload any non ContentManager content here
         }
 
         private bool newPress(Keys key)
@@ -274,9 +270,6 @@ namespace Hackathon
             }
             return gotLeft && gotRight;
         }
-
-        
-        
 
         bool firstFrame = true;
         MouseState thisMouse;
