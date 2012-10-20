@@ -24,7 +24,10 @@ namespace Hackathon
         Texture2D actionBox;
         Texture2D background;
         Texture2D cursor;
+        Texture2D plate;
+
         int x_actionBox = 225;
+        int plateY = -25;
 
 
         public Game1()
@@ -64,6 +67,7 @@ namespace Hackathon
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
             background = this.Content.Load<Texture2D>("Images/background");
             cursor = this.Content.Load<Texture2D>("Images/cursor");
+            plate = this.Content.Load<Texture2D>("Images/plate");
         }
 
         /// <summary>
@@ -90,6 +94,11 @@ namespace Hackathon
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
                 x_actionBox -= 1;
             // TODO: Add your update logic here
+
+            plateY += 5;
+            if (plateY == 800)
+                plateY = -25;
+
             MouseState m = Mouse.GetState();
             mouse_x = m.X;
             mouse_y = m.Y;
@@ -114,6 +123,9 @@ namespace Hackathon
             spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
             spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
+            spriteBatch.Draw(plate, new Vector2(25, plateY), Color.Violet);
+            spriteBatch.Draw(plate, new Vector2(725, plateY), Color.Thistle);
+
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), Color.White);
             spriteBatch.End();
 
