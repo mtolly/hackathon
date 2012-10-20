@@ -102,11 +102,13 @@ namespace Hackathon
             MouseState m = Mouse.GetState();
             mouse_x = m.X;
             mouse_y = m.Y;
+            mouse_down = m.LeftButton == ButtonState.Pressed;
 
             base.Update(gameTime);
         }
 
         int mouse_x, mouse_y;
+        bool mouse_down;
 
         private void drawCenter(Texture2D tex, Vector2 centerAt, Color color)
         {
@@ -132,7 +134,7 @@ namespace Hackathon
             spriteBatch.Draw(plate, new Vector2(25, plateY), Color.Violet);
             spriteBatch.Draw(plate, new Vector2(725, plateY), Color.Thistle);
 
-            spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), Color.White);
+            spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
