@@ -226,7 +226,7 @@ namespace Hackathon
                 {
                     plateColor = Color.Yellow;
                 }
-                if (AllPlates[i].y_value >= 650)
+                if (AllPlates[i].y_value >= 550)
                 {
                     // Start fading the plate
                 }

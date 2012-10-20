@@ -15,6 +15,7 @@ namespace Hackathon
     {
         public Plate(double xOrgin, double yOrgin, double xSpeed, double ySpeed, double yReset, double xReset, Texture2D contents)
         {
+            fadeOut = false;
             in_zone = false;
             y_reset = yReset;
             x_reset = xReset;
@@ -27,6 +28,7 @@ namespace Hackathon
             plateContents = contents;
         }
         public bool in_zone { get; set; }
+        public bool fadeOut { get; set; }
         public double x_value { get; set; }
         public double y_value { get; set; }
         public double x_speed { get; set; }
@@ -46,6 +48,11 @@ namespace Hackathon
                 this.x_value = this.x_reset;
                 //plate.y_value = plate.y_orgin;
                 this.y_value = this.y_reset;
+            }
+
+            if (this.y_value >= 550)
+            {
+                fadeOut = true;
             }
 
             this.in_zone = 450 <= this.y_value && this.y_value <= 600;
