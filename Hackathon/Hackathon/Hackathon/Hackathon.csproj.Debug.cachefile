@@ -5,7 +5,6 @@ Content\Images\rightTable.xnb
 Content\Images\background.xnb
 Content\Images\cursor.xnb
 Content\Images\plate.xnb
-Content\Images\SpriteFont1.xnb
 Content\Images\line.xnb
 Content\Images\chinaman.xnb
 Content\Images\chinaman2.xnb
@@ -65,6 +64,7 @@ Content\Japanese\q9d1.xnb
 Content\Japanese\q9d2.xnb
 Content\Japanese\q9d3.xnb
 Content\Japanese\q9q.xnb
+Content\Images\SpriteFont1.xnb
 Content\Spanish\q1a.xnb
 Content\Spanish\q1d1.xnb
 Content\Spanish\q1d2.xnb
@@ -96,3 +96,4 @@ Content\Spanish\q5d3.xnb
 Content\Spanish\q5p.xnb
 Content\Spanish\q5q.xnb
 Content\Images\scoreboard.xnb
+Content\Images\logo.xnb
