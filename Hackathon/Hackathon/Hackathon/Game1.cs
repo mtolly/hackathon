@@ -22,6 +22,7 @@ namespace Hackathon
         Texture2D sushiSensei;
         Texture2D sushiSensei2;
         Texture2D sushiSensei3;
+        Texture2D sushiSensei4;
         Texture2D leftTable;
         Texture2D rightTable;
         Texture2D actionBox;
@@ -42,15 +43,15 @@ namespace Hackathon
         List<Texture2D> left_answers;
         List<Texture2D> right_answers;
 
-        Plate[] AllPlates = { new Plate(220, 30, -0.5, 1.5, 30, 220, null), 
-                              new Plate(265, -120, -0.5, 1.5, 30, 220, null), 
-                              new Plate(315, -270, -0.5, 1.5, 30, 220, null), 
-                              new Plate(370, -420, -0.5, 1.5, 30, 220, null), 
+        Plate[] AllPlates = { new Plate(220, 30, -0.75, 2.25, 30, 220, null), 
+                              new Plate(265, -120, -0.75, 2.25, 30, 220, null), 
+                              new Plate(315, -270, -0.75, 2.25, 30, 220, null), 
+                              new Plate(370, -420, -0.75, 2.25, 30, 220, null), 
 
-                              new Plate(540, 30, 0.2, 1.5, 30, 540, null), 
-                              new Plate(520, -120, 0.2, 1.5, 30, 540, null), 
-                              new Plate(500, -270, 0.2, 1.5, 30, 540, null), 
-                              new Plate(480, -420, 0.2, 1.5, 30, 540, null) };
+                              new Plate(540, 30, 0.4, 2.25, 30, 540, null), 
+                              new Plate(520, -120, 0.4, 2.25, 30, 540, null), 
+                              new Plate(500, -270, 0.4, 2.25, 30, 540, null), 
+                              new Plate(480, -420, 0.4, 2.25, 30, 540, null) };
 
         public enum GameStates
         {
@@ -97,6 +98,7 @@ namespace Hackathon
             sushiSensei = this.Content.Load<Texture2D>("Images/chinaman");
             sushiSensei2 = this.Content.Load<Texture2D>("Images/chinaman2");
             sushiSensei3 = this.Content.Load<Texture2D>("Images/chinaman3");
+            sushiSensei4 = this.Content.Load<Texture2D>("Images/chinaman4");
             leftTable = this.Content.Load<Texture2D>("Images/leftTable");
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
@@ -331,7 +333,9 @@ namespace Hackathon
 
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
-            if (madFace == 0)
+            if (slidingPlates > 0)
+                drawCenter(sushiSensei4, new Vector2(430, 250), Color.White);
+            else if (madFace == 0)
                 drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
             else if (madFace == 1)
                 drawCenter(sushiSensei2, new Vector2(430, 250), Color.White);

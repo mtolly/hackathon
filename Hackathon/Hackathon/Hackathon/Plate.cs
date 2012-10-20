@@ -58,8 +58,8 @@ namespace Hackathon
         public int updatePlate(int slidingPlates)
         {
             bool sliding = slidingPlates != 0;
-            this.x_value += (sliding ? 3 : 1) * this.x_speed;
-            this.y_value += (sliding ? 3 : 1) * this.y_speed;
+            this.x_value += (sliding ? 4 : 1) * this.x_speed;
+            this.y_value += (sliding ? 4 : 1) * this.y_speed;
             if (this.y_value >= 650)
             {
                 if (sliding)
