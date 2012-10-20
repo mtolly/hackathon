@@ -29,9 +29,9 @@ namespace Hackathon
 
         int left_selected = 0;
         int right_selected = 0;
-        string[] left_words = {};
-        Texture2D[] right_pics = {};
-        string question = "";
+        Texture2D[] left_answers = {};
+        Texture2D[] right_answers = {};
+        Texture2D question;
 
         int x_actionBox = 225;
         int plateY = -25;
