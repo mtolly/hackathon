@@ -18,6 +18,7 @@ namespace Hackathon
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D fumanchu;
 
         public Game1()
         {
@@ -48,6 +49,7 @@ namespace Hackathon
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            fumanchu = this.Content.Load<Texture2D>("fumanchu");
         }
 
         /// <summary>
@@ -84,6 +86,9 @@ namespace Hackathon
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            spriteBatch.Draw(fumanchu, Vector2.Zero, Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
