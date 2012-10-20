@@ -178,27 +178,17 @@ namespace Hackathon
             // for each plate, adjust it
             for (int i = 0; i < AllPlates.Length; i++)
             {
-                AllPlates[i].x_value += AllPlates[i].x_speed;
-                AllPlates[i].y_value += AllPlates[i].y_speed;
-                if (AllPlates[i].y_value >= 650)
+                Plate plate = AllPlates[i];
+                plate.x_value += plate.x_speed;
+                plate.y_value += plate.y_speed;
+                if (plate.y_value >= 650)
                 {
-                    AllPlates[i].x_value = AllPlates[i].x_reset;
-                    //AllPlates[i].y_value = AllPlates[i].y_orgin;
-                    AllPlates[i].y_value = AllPlates[i].y_reset;
+                    plate.x_value = plate.x_reset;
+                    //plate.y_value = plate.y_orgin;
+                    plate.y_value = plate.y_reset;
                 }
 
-                if (AllPlates[i].y_value >= 450)
-                {
-                    AllPlates[i].in_zone = true;
-                }
-                else
-                {
-                    AllPlates[i].in_zone = false;
-                }
-                if (AllPlates[i].in_zone && AllPlates[i].y_value >= 600)
-                {
-                    AllPlates[i].in_zone = false;
-                }
+                plate.in_zone = 450 <= plate.y_value && plate.y_value <= 600;
             }
 
             mouse_x = thisMouse.X;
