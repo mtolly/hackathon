@@ -85,6 +85,12 @@ namespace Hackathon
             // TODO: Unload any non ContentManager content here
         }
 
+        private bool newPress(Keys key) {
+            if (firstFrame)
+                return false;
+            return lastKeys.IsKeyUp(key) && lastKeys.IsKeyDown(key);
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -92,26 +98,40 @@ namespace Hackathon
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            lastKeys = thisKeys;
+            thisKeys = Keyboard.GetState();
+            thisMouse = Mouse.GetState();
+
+            if (thisKeys.IsKeyDown(Keys.Right))
                 x_actionBox += 1;
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            if (thisKeys.IsKeyDown(Keys.Left))
                 x_actionBox -= 1;
-            // TODO: Add your update logic here
 
             plateY += 5;
-            if (plateY == 800)
+            if (plateY >= 800)
                 plateY = -25;
 
-            MouseState m = Mouse.GetState();
-            mouse_x = m.X;
-            mouse_y = m.Y;
-            mouse_down = m.LeftButton == ButtonState.Pressed;
+            mouse_x = thisMouse.X;
+            mouse_y = thisMouse.Y;
+            mouse_down = thisMouse.LeftButton == ButtonState.Pressed;
 
+            if (newPress(Keys.Up))
+                right_selected = (right_selected - 1) % 4;
+            if (newPress(Keys.Down))
+                right_selected = (right_selected + 1) % 4;
+            if (newPress(Keys.A))
+                left_selected = (left_selected - 1) % 4;
+            if (newPress(Keys.Z))
+                left_selected = (left_selected + 1) % 4;
+
+            firstFrame = false;
             base.Update(gameTime);
         }
+
+        bool firstFrame = true;
+        MouseState thisMouse;
+        KeyboardState lastKeys;
+        KeyboardState thisKeys;
 
         int mouse_x, mouse_y;
         bool mouse_down;
