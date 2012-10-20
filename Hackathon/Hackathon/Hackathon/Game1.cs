@@ -23,7 +23,7 @@ namespace Hackathon
         Texture2D rightTable;
         Texture2D actionBox;
         Texture2D background;
-        int x_sushi = 200;
+        int x_actionBox = 225;
 
 
         public Game1()
@@ -84,9 +84,9 @@ namespace Hackathon
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                x_sushi += 1;
+                x_actionBox += 1;
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                x_sushi -= 1;
+                x_actionBox -= 1;
             // TODO: Add your update logic here
 
 
@@ -104,10 +104,10 @@ namespace Hackathon
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
-            spriteBatch.Draw(sushiSensei, new Vector2(x_sushi, 350), Color.White);
+            spriteBatch.Draw(sushiSensei, new Vector2(200, 350), Color.White);
             spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
-            spriteBatch.Draw(actionBox, new Vector2(225, 50), Color.White);
+            spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
