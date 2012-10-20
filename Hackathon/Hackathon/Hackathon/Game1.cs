@@ -38,6 +38,7 @@ namespace Hackathon
         SpriteFont font;
         Boolean leftStop = false;
         Boolean rightStop = false;
+        
         int currentScore = 0;
         Boolean winning = false;
         Boolean gameEnd = false;
@@ -115,6 +116,7 @@ namespace Hackathon
             scoreboard = this.Content.Load<Texture2D>("Images/scoreboard");
             logo = this.Content.Load<Texture2D>("Images/logo");
             Song song = Content.Load<Song>("japanmusic");  // Put the name of your song in instead of "song_title"
+            //SoundEffect hiya = Content.Load<SoundEffect>("hiya");
             MediaPlayer.Play(song);
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
@@ -348,6 +350,7 @@ namespace Hackathon
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            SoundEffect hiya = this.Content.Load<SoundEffect>("hiya");
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
@@ -367,6 +370,10 @@ namespace Hackathon
             if (leftStop)
             {
                 drawCenter(leftSlap, new Vector2(430, 250), Color.White);
+                if (newPress(Keys.Left))
+                {
+                    hiya.Play();
+                }
             }
 
             if (rightStop)
