@@ -129,7 +129,33 @@ namespace Hackathon
         // Loads a new question from the questionsToAsk onto the plates.
         private void loadPlates()
         {
+            if (questionsToAsk.Count == 0)
+                return;
+            Question asking = questionsToAsk.Last.Value;
+            questionsToAsk.RemoveLast();
 
+            question = asking.question;
+            left_answers = new LinkedList<Texture2D>();
+            left_answers.AddLast(asking.left_answer);
+            foreach (Texture2D tex in asking.left_duds)
+                left_answers.AddLast(tex);
+            this.shuffle<Texture2D>(left_answers);
+            // TODO: add right answers
+        }
+
+        private void shuffle<T>(LinkedList<T> list)
+        {
+            Random rng = new Random();
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                // TODO
+                //T value = list[k];
+                //list[k] = list[n];
+                //list[n] = value;
+            }
         }
 
         /// <summary>
