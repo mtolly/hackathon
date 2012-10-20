@@ -25,12 +25,16 @@ namespace Hackathon
         Texture2D background;
         Texture2D cursor;
         Texture2D plate;
+        SpriteFont font;
 
-        string[] names = new string[] { "Matt", "Joanne", "Robert" };
+        int left_selected = 0;
+        int right_selected = 0;
+        string[] left_words = {};
+        Texture2D[] right_pics = {};
+        string question = "";
 
         int x_actionBox = 225;
         int plateY = -25;
-
 
         public Game1()
         {
@@ -135,7 +139,6 @@ namespace Hackathon
             spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
             spriteBatch.Draw(plate, new Vector2(25, plateY), Color.Violet);
             spriteBatch.Draw(plate, new Vector2(725, plateY), Color.Thistle);
-
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
             spriteBatch.End();
 
