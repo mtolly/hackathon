@@ -139,7 +139,7 @@ namespace Hackathon
                 indexes.Add(i);
             this.shuffle<int>(indexes);
             for (int i = 0; i < 4; i++)
-                AllPlates[i].plateContents = allQuestions[indexes[i]].right_answer;
+                AllPlates[i + 4].plateContents = allQuestions[indexes[i]].right_answer;
         }
 
         private void shuffle<T>(IList<T> list)
