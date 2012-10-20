@@ -242,8 +242,27 @@ namespace Hackathon
                 }
                 if (AllPlates[i].y_value >= 550)
                 {
+                    AllPlates[i].plateColor -= 85;
                     // Start fading the plate
+                    plateColor = new Color(AllPlates[i].plateColor, AllPlates[i].plateColor, 0, AllPlates[i].plateColor);
                 }
+                if (AllPlates[i].y_value >= 575)
+                {
+                    AllPlates[i].plateColor -= 85;
+                    // Start fading the plate
+                    plateColor = new Color(AllPlates[i].plateColor, AllPlates[i].plateColor, 0, AllPlates[i].plateColor);
+                }
+                if (AllPlates[i].y_value >= 600)
+                {
+                    AllPlates[i].plateColor -= 85;
+                    // Start fading the plate
+                    plateColor = new Color(AllPlates[i].plateColor, AllPlates[i].plateColor, 0, AllPlates[i].plateColor);
+                }
+
+
+
+
+
                 double scale_factor = (((float)AllPlates[i].y_value + 170) / (670));
                 spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f);
                 spriteBatch.Draw(AllPlates[i].plateContents, new Vector2((int)Math.Ceiling(AllPlates[i].x_value+(150*scale_factor-(1.25*AllPlates[i].plateContents.Width*(scale_factor)))), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f); 
