@@ -118,7 +118,7 @@ namespace Hackathon
             MediaPlayer.Play(song);
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
-            loadGerman();
+            loadSpanish();
             loadPlates();
         }
 
@@ -375,7 +375,7 @@ namespace Hackathon
             }
             if (!gameEnd)
             {
-                drawCenter(logo, new Vector2(400, 570), Color.White);
+                drawCenter(logo, new Vector2(400, 80), Color.White);
             }
             else
             {
