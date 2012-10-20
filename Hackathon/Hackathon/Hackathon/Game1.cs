@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -18,7 +18,10 @@ namespace Hackathon
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D fumanchu;
+        Texture2D sushiSensei;
+        Texture2D leftTable;
+        Texture2D rightTable;
+        Texture2D actionBox;
 
         public Game1()
         {
@@ -51,7 +54,7 @@ namespace Hackathon
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            fumanchu = this.Content.Load<Texture2D>("fumanchu");
+            sushiSensei = this.Content.Load<Texture2D>("fumanchu");
         }
 
         /// <summary>
@@ -89,7 +92,10 @@ namespace Hackathon
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.Draw(fumanchu, Vector2.Zero, Color.White);
+            spriteBatch.Draw(sushiSensei, new Vector2(30,200), Color.White);
+            spriteBatch.Draw(leftTable, new Vector2(300, 200), Color.White);
+            spriteBatch.Draw(rightTable, new Vector2(300, 20), Color.White);
+            spriteBatch.Draw(actionBox, new Vector2(60, 500), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
