@@ -34,6 +34,7 @@ namespace Hackathon
         Boolean buttonDebounce = false;
         int currentScore = 0;
         int buttonCounter = 0;
+        Boolean winning = false;
 
         bool inZone = false;
 
@@ -236,6 +237,18 @@ namespace Hackathon
             mouse_down = thisMouse.LeftButton == ButtonState.Pressed;
 
             firstFrame = false;
+
+            if (this.isCorrect() && leftStop && rightStop)
+            {
+                winning = true;
+                currentScore += 200;
+            }
+            else
+            {
+                winning = false;
+            }
+
+
             base.Update(gameTime);
         }
 
@@ -262,6 +275,9 @@ namespace Hackathon
             }
             return gotLeft && gotRight;
         }
+
+        
+        
 
         bool firstFrame = true;
         MouseState thisMouse;
@@ -298,7 +314,7 @@ namespace Hackathon
                 spriteBatch.Draw(AllPlates[i].plateContents, new Vector2((int)Math.Ceiling(AllPlates[i].x_value + (150 * scale_factor - (1.25 * AllPlates[i].plateContents.Width * (scale_factor)))), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, AllPlates[i].plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f);
             }
 
-            spriteBatch.DrawString(font, this.isCorrect() ? ":]" : ":[", new Vector2(300,100), Color.Blue);
+            spriteBatch.DrawString(font, winning ? "A Winner is You!" : "No Can Haz Pts", new Vector2(300,100), Color.Blue);
 
             spriteBatch.Draw(question, new Vector2(270, 125), Color.White);
 
