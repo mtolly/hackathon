@@ -86,13 +86,16 @@ namespace Hackathon
             cursor = this.Content.Load<Texture2D>("Images/cursor");
             plate = this.Content.Load<Texture2D>("Images/plate");
             line = this.Content.Load<Texture2D>("Images/line");
+            q10a = this.Content.Load<Texture2D>("Japanese/q10a");
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
             for (int i = 0; i < AllPlates.Length; i++)
             {
-                AllPlates[i].plateContents = cursor;
+                AllPlates[i].plateContents = q10a;
             }
         }
+
+        private Texture2D q10a;
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
