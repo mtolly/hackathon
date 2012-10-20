@@ -31,7 +31,9 @@ namespace Hackathon
         SpriteFont font;
         Boolean leftStop = false;
         Boolean rightStop = false;
+        Boolean buttonDebounce = false;
         int currentScore = 0;
+        int buttonCounter = 0;
 
         bool inZone = false;
 
@@ -189,16 +191,38 @@ namespace Hackathon
             thisKeys = Keyboard.GetState();
             thisMouse = Mouse.GetState();
 
+            if (buttonCounter == 30)
+            {
+                buttonCounter = 0;
+            }
 
-            if (thisKeys.IsKeyDown(Keys.Right) && rightStop)
-                rightStop = false;
-            else if (thisKeys.IsKeyDown(Keys.Left) && leftStop)
-                leftStop = false;
-            else if (thisKeys.IsKeyDown(Keys.Right) && !rightStop)
-                rightStop = true;
-            else if (thisKeys.IsKeyDown(Keys.Left) && !leftStop)
-                leftStop = true;
-            
+            if (buttonCounter == 0)
+            {
+                if (thisKeys.IsKeyDown(Keys.Right) && rightStop)
+                {
+                    rightStop = false;
+                    buttonCounter = 1;
+                }  
+                else if (thisKeys.IsKeyDown(Keys.Left) && leftStop)
+                {
+                    leftStop = false;
+                    buttonCounter = 1;
+                }  
+                else if (thisKeys.IsKeyDown(Keys.Right) && !rightStop)
+                {
+                    rightStop = true;
+                    buttonCounter = 1;
+                }  
+                else if (thisKeys.IsKeyDown(Keys.Left) && !leftStop)
+                {
+                    leftStop = true;
+                    buttonCounter = 1;
+                }
+            }
+            else
+            {
+                buttonCounter++;
+            }
 
             for(int i = 0; i<AllPlates.Length; i++){
                 if (!leftStop && (i < 4))
