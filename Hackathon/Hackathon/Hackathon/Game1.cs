@@ -35,14 +35,17 @@ namespace Hackathon
         LinkedList<Texture2D> left_answers;
         LinkedList<Texture2D> right_answers;
 
-        Plate leftPlate = new Plate(210, 25, 1.5, 0.6);
-        Plate rightPlate = new Plate(510, 25, 1.5, 0.6);
+        Plate[] AllPlates = { new Plate(225, 30, -0.5, 1.5, 30, 225), 
+                              new Plate(285, -120, -0.5, 1.5, 30, 225), 
+                              new Plate(345, -270, -0.5, 1.5, 30, 225), 
+                              new Plate(405, -420, -0.5, 1.5, 30, 225), 
+
+                              new Plate(480, 30, 0.5, 1.5, 30, 480), 
+                              new Plate(420, -120, 0.5, 1.5, 30, 480), 
+                              new Plate(360, -270, 0.5, 1.5, 30, 480), 
+                              new Plate(300, -420, 0.5, 1.5, 30, 480) };
 
         int x_actionBox = 225;
-        double plateY = 25;
-        double plateX = 210;
-
-        
 
         public Game1()
         {
@@ -136,18 +139,26 @@ namespace Hackathon
             if (thisKeys.IsKeyDown(Keys.Left))
                 x_actionBox -= 1;
 
-            plateY += 1.5;
-            plateX -= 0.6;
-            if (plateY >= 800)
+            // for each plate, adjust it
+            for (int i = 0; i < AllPlates.Length; i++)
             {
-                plateX = 210;
-                plateY = 25;
+                AllPlates[i].x_value += AllPlates[i].x_speed;
+                AllPlates[i].y_value += AllPlates[i].y_speed;
+                if (AllPlates[i].y_value >= 800)
+                {
+                    AllPlates[i].x_value = AllPlates[i].x_reset;
+                    //AllPlates[i].y_value = AllPlates[i].y_orgin;
+                    AllPlates[i].y_value = AllPlates[i].y_reset;
+                }
+                if (AllPlates[i].y_value >= 350)
+                {
+                    AllPlates[i].in_zone = true;
+                }
+                else
+                {
+                    AllPlates[i].in_zone = false;
+                }
             }
-
-            if (plateY >= 350)
-                inZone = true;
-            else
-                inZone = false;
 
             mouse_x = thisMouse.X;
             mouse_y = thisMouse.Y;
@@ -196,13 +207,16 @@ namespace Hackathon
             spriteBatch.Draw(line, new Vector2(550, 400), Color.White);
 
             //spriteBatch.Draw(plate, new Vector2(plateX, plateY), Color.Violet);
-            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170)/(670)), (((float)plateY + 170)/(670))), SpriteEffects.None, 0f);
+            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170)/(670)), (((float)plateY + 170)/(670))), SpriteEffects.None, 0f);
            
-            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f); 
-            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 200)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
-            spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 300)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
-            
-            
+            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f); 
+            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 200)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
+            //spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(plateX), (int)Math.Ceiling(plateY - 300)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)plateY + 170) / (670)), (((float)plateY + 170) / (670))), SpriteEffects.None, 0f);
+
+            for (int i = 0; i < AllPlates.Length; i++)
+            {
+                spriteBatch.Draw(plate, new Vector2((int)Math.Ceiling(AllPlates[i].x_value), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, Color.White, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f); 
+            }
             
             
             //spriteBatch.Draw(plate, new Vector2(650, plateY), Color.Thistle);
