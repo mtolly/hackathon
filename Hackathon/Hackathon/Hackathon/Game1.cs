@@ -123,6 +123,15 @@ namespace Hackathon
             return lastKeys.IsKeyUp(key) && thisKeys.IsKeyDown(key);
         }
 
+        private LinkedList<Question> allQuestions;
+        private LinkedList<Question> questionsToAsk;
+
+        // Loads a new question from the questionsToAsk onto the plates.
+        private void loadPlates()
+        {
+
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
