@@ -78,7 +78,7 @@ namespace Hackathon
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            sushiSensei = this.Content.Load<Texture2D>("Images/fumanchu");
+            sushiSensei = this.Content.Load<Texture2D>("Images/chinaman");
             leftTable = this.Content.Load<Texture2D>("Images/leftTable");
             rightTable = this.Content.Load<Texture2D>("Images/rightTable");
             actionBox = this.Content.Load<Texture2D>("Images/actionBox");
@@ -198,7 +198,7 @@ namespace Hackathon
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
-            drawCenter(sushiSensei, new Vector2(400, 450), Color.White);
+            drawCenter(sushiSensei, new Vector2(430, 250), Color.White);
 
             spriteBatch.Draw(line, new Vector2(50, 400), Color.White);
             spriteBatch.Draw(line, new Vector2(550, 400), Color.White);
