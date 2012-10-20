@@ -216,7 +216,7 @@ namespace Hackathon
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //input.Update();
+            input.Update();
 
             if (gamestate == GameStates.Running)
             { 
@@ -269,28 +269,26 @@ namespace Hackathon
 
             else if (gamestate == GameStates.Menu)
             {
-                if (this.newPress(Keys.Down) || this.newPress(Keys.Left))
+                if (input.RightDown || input.LeftDown)
                 {
                     menu.Iterator++;
                 }
-                else if (this.newPress(Keys.Up) || this.newPress(Keys.Right))
+                else if (input.RightUp || input.LeftUp)
                 {
                     menu.Iterator--;
                 }
 
-                else if (this.newPress(Keys.Enter))
+                if (input.MenuSelect)
                 {
                     if (menu.Iterator == 0)
                     {
                         gamestate = GameStates.Running;
-                        loadJapanese();
-                        loadPlates();
+                        SetUpJapanese();
                     }
                     else if (menu.Iterator == 1)
                     {
                         gamestate = GameStates.Running;
-                        loadSpanish();
-                        loadPlates();
+                        SetUpSpanish();
                     }
                     else if (menu.Iterator == 2)
                     {
@@ -301,7 +299,7 @@ namespace Hackathon
             }
             else if (gamestate == GameStates.End)
             {
-                if (this.newPress(Keys.Enter))
+                if (input.MenuSelect)
                 {
                     gamestate = GameStates.Menu;
                 }
