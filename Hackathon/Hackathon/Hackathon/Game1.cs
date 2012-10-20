@@ -26,6 +26,8 @@ namespace Hackathon
         Texture2D cursor;
         Texture2D plate;
 
+        string[] names = new string[] { "Matt", "Joanne", "Robert" };
+
         int x_actionBox = 225;
         int plateY = -25;
 
