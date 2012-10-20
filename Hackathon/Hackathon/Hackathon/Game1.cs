@@ -90,7 +90,7 @@ namespace Hackathon
         private bool newPress(Keys key) {
             if (firstFrame)
                 return false;
-            return lastKeys.IsKeyUp(key) && lastKeys.IsKeyDown(key);
+            return lastKeys.IsKeyUp(key) && thisKeys.IsKeyDown(key);
         }
 
         /// <summary>
@@ -118,16 +118,21 @@ namespace Hackathon
             mouse_down = thisMouse.LeftButton == ButtonState.Pressed;
 
             if (newPress(Keys.Up))
-                right_selected = (right_selected - 1) % 4;
+                right_selected = mod(right_selected - 1, 4);
             if (newPress(Keys.Down))
-                right_selected = (right_selected + 1) % 4;
+                right_selected = mod(right_selected + 1, 4);
             if (newPress(Keys.A))
-                left_selected = (left_selected - 1) % 4;
+                left_selected = mod(left_selected - 1, 4);
             if (newPress(Keys.Z))
-                left_selected = (left_selected + 1) % 4;
+                left_selected = mod(left_selected + 1, 4);
 
             firstFrame = false;
             base.Update(gameTime);
+        }
+
+        private int mod(int x, int m)
+        {
+            return (x % m + m) % m;
         }
 
         bool firstFrame = true;
@@ -163,7 +168,7 @@ namespace Hackathon
             spriteBatch.Draw(plate, new Vector2(725, plateY), Color.Thistle);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
 
-            spriteBatch.DrawString(font, "KONNICHIWA BITCHEZ", new Vector2(50, 50), Color.MintCream);
+            spriteBatch.DrawString(font, "Left: " + left_selected + ", Right: " + right_selected, new Vector2(50, 50), Color.MintCream);
             spriteBatch.End();
 
             base.Draw(gameTime);
