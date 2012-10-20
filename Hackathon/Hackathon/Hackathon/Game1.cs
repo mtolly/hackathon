@@ -164,6 +164,12 @@ namespace Hackathon
             this.shuffle<int>(indexes);
             for (int i = 0; i < 4; i++)
                 AllPlates[i + 4].plateContents = allQuestions[indexes[i]].right_answer;
+            // hack to make sure the correct right_answer is actually in there
+            bool b = false;
+            for (int i = 0; i < 4; i++)
+                b = b || (allQuestions[indexes[i]].right_answer == asking.right_answer);
+            if (!b)
+                AllPlates[4].plateContents = asking.right_answer;
         }
 
         private void shuffle<T>(IList<T> list)
