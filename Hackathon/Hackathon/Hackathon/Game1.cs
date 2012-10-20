@@ -26,8 +26,12 @@ namespace Hackathon
         Texture2D background;
         Texture2D cursor;
         Texture2D plate;
+        Texture2D scoreboard;
         Texture2D line;
         SpriteFont font;
+        Boolean leftStop = false;
+        Boolean rightStop = false;
+        int currentScore = 0;
 
         bool inZone = false;
 
@@ -87,6 +91,7 @@ namespace Hackathon
             plate = this.Content.Load<Texture2D>("Images/plate");
             line = this.Content.Load<Texture2D>("Images/line");
             q10a = this.Content.Load<Texture2D>("Japanese/q10a");
+            scoreboard = this.Content.Load<Texture2D>("Images/scoreboard");
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
             //for (int i = 0; i < AllPlates.Length; i++)
@@ -185,12 +190,20 @@ namespace Hackathon
             thisMouse = Mouse.GetState();
 
             if (thisKeys.IsKeyDown(Keys.Right))
-                x_actionBox += 1;
+                rightStop = true;
             if (thisKeys.IsKeyDown(Keys.Left))
-                x_actionBox -= 1;
+                leftStop = true;
 
-            foreach (Plate p in AllPlates)
-                p.updatePlate();
+            for(int i = 0; i<AllPlates.Length; i+=2){
+                if (!leftStop && (i % 2 == 0))
+                {
+                    AllPlates[i].updatePlate();
+                }
+                if (!leftStop && (i % 2 == 1))
+                {
+                    AllPlates[i].updatePlate();
+                }
+            }
 
             mouse_x = thisMouse.X;
             mouse_y = thisMouse.Y;
@@ -241,9 +254,9 @@ namespace Hackathon
             }
 
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
-
-            //spriteBatch.DrawString(font, "KONNICHIWA BITCHEZ", new Vector2(50, 50), Color.MintCream);
-            spriteBatch.DrawString(font, inZone ? "true" : "false", new Vector2(400, 400), Color.Teal);
+            spriteBatch.Draw(scoreboard, new Vector2(45, 51), Color.White);
+            spriteBatch.DrawString(font, "Score: " + currentScore, new Vector2(50, 50), Color.MintCream);
+            //spriteBatch.DrawString(font, inZone ? "true" : "false", new Vector2(400, 400), Color.Teal);
             spriteBatch.End();
 
             base.Draw(gameTime);
