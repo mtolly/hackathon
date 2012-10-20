@@ -32,8 +32,8 @@ namespace Hackathon
         bool inZone = false;
 
         Texture2D question, left_correct, right_correct;
-        LinkedList<Texture2D> left_answers;
-        LinkedList<Texture2D> right_answers;
+        List<Texture2D> left_answers;
+        List<Texture2D> right_answers;
 
         Plate[] AllPlates = { new Plate(225, 30, -0.5, 1.5, 30, 225, null), 
                               new Plate(285, -120, -0.5, 1.5, 30, 225, null), 
@@ -103,23 +103,6 @@ namespace Hackathon
             // TODO: Unload any non ContentManager content here
         }
 
-        private void movePlates()
-        {
-            LinkedListNode<Texture2D> left_first = left_answers.First;
-            if (left_first != null)
-            {
-                left_answers.RemoveFirst();
-                left_answers.AddLast(left_first);
-            }
-
-            LinkedListNode<Texture2D> right_first = right_answers.First;
-            if (right_first != null)
-            {
-                right_answers.RemoveFirst();
-                right_answers.AddLast(right_first);
-            }
-        }
-
         private bool newPress(Keys key)
         {
             if (firstFrame)
@@ -127,27 +110,39 @@ namespace Hackathon
             return lastKeys.IsKeyUp(key) && thisKeys.IsKeyDown(key);
         }
 
-        private LinkedList<Question> allQuestions;
-        private LinkedList<Question> questionsToAsk;
+        private List<Question> allQuestions;
+        private List<Question> questionsToAsk;
 
         // Loads a new question from the questionsToAsk onto the plates.
         private void loadPlates()
         {
             if (questionsToAsk.Count == 0)
                 return;
-            Question asking = questionsToAsk.Last.Value;
-            questionsToAsk.RemoveLast();
+            Question asking = questionsToAsk[questionsToAsk.Count - 1];
+            questionsToAsk.RemoveAt(questionsToAsk.Count - 1);
 
             question = asking.question;
-            left_answers = new LinkedList<Texture2D>();
-            left_answers.AddLast(asking.left_answer);
+
+            // Take the correct answer and the three duds, and assign them randomly to left plates
+            left_answers = new List<Texture2D>();
+            left_answers.Add(asking.left_answer);
             foreach (Texture2D tex in asking.left_duds)
-                left_answers.AddLast(tex);
+                left_answers.Add(tex);
             this.shuffle<Texture2D>(left_answers);
-            // TODO: add right answers
+            for (int i = 0; i < 4; i++)
+                AllPlates[i].plateContents = left_answers[i];
+
+            // Take four random right answers (from all questions) and assign randomly to right plates
+            right_answers = new List<Texture2D>();
+            List<int> indexes = new List<int>();
+            for (int i = 0; i < allQuestions.Count; i++)
+                indexes.Add(i);
+            this.shuffle<int>(indexes);
+            for (int i = 0; i < 4; i++)
+                AllPlates[i].plateContents = allQuestions[indexes[i]].right_answer;
         }
 
-        private void shuffle<T>(LinkedList<T> list)
+        private void shuffle<T>(IList<T> list)
         {
             Random rng = new Random();
             int n = list.Count;
@@ -155,10 +150,9 @@ namespace Hackathon
             {
                 n--;
                 int k = rng.Next(n + 1);
-                // TODO
-                //T value = list[k];
-                //list[k] = list[n];
-                //list[n] = value;
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
             }
         }
 
