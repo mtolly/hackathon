@@ -108,6 +108,12 @@ namespace Hackathon
 
         int mouse_x, mouse_y;
 
+        private void drawCenter(Texture2D tex, Vector2 centerAt, Color color)
+        {
+            Vector2 centerPoint = new Vector2(tex.Width / 2, tex.Height / 2);
+            spriteBatch.Draw(tex, Vector2.Add(centerAt, Vector2.Negate(centerPoint)), color);
+        }
+
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -119,7 +125,7 @@ namespace Hackathon
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(background, Vector2.Zero, Color.Wheat);
-            spriteBatch.Draw(sushiSensei, new Vector2(200, 350), Color.White);
+            drawCenter(sushiSensei, new Vector2(400, 450), Color.White);
             spriteBatch.Draw(leftTable, new Vector2(0, 0), Color.White);
             spriteBatch.Draw(rightTable, new Vector2(600, 0), Color.White);
             spriteBatch.Draw(actionBox, new Vector2(x_actionBox, 50), Color.White);
