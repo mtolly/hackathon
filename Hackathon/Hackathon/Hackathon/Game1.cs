@@ -33,6 +33,7 @@ namespace Hackathon
         Boolean rightStop = false;
         int currentScore = 0;
         Boolean winning = false;
+        Boolean gameEnd = false;
 
         Texture2D question, left_correct, right_correct;
         List<Texture2D> left_answers;
@@ -103,7 +104,7 @@ namespace Hackathon
             MediaPlayer.Play(song);
 
             font = this.Content.Load<SpriteFont>("Images/SpriteFont1");
-            loadJapanese();
+            loadSpanish();
             loadPlates();
         }
 
@@ -156,7 +157,12 @@ namespace Hackathon
         private void loadPlates()
         {
             if (questionsToAsk.Count == 0)
+            {
+                leftStop = true;
+                rightStop = true;
+                gameEnd = true;
                 return;
+            }
             Question asking = questionsToAsk[questionsToAsk.Count - 1];
             questionsToAsk.RemoveAt(questionsToAsk.Count - 1);
 
@@ -226,7 +232,13 @@ namespace Hackathon
             {
                 if ((!leftStop && (i < 4)) || (!rightStop && (i >= 4)))
                 {
+                    bool slidingBefore = slidingPlates > 0;
                     slidingPlates = AllPlates[i].updatePlate(slidingPlates);
+                    bool slidingAfter = slidingPlates > 0;
+                    if (slidingBefore && !slidingAfter)
+                    {
+                        loadPlates();
+                    }
                 }
             }
 
@@ -236,7 +248,7 @@ namespace Hackathon
 
             firstFrame = false;
 
-            if (leftStop && rightStop)
+            if (leftStop && rightStop && !gameEnd)
             {
                 winning = this.isCorrect();
                 if (winning)
