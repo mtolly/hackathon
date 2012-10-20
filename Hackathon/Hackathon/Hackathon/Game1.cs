@@ -352,6 +352,7 @@ namespace Hackathon
         {
             SoundEffect hiya = this.Content.Load<SoundEffect>("hiya");
             SoundEffect correct = this.Content.Load<SoundEffect>("correct");
+            SoundEffect washing = this.Content.Load<SoundEffect>("washing");
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
@@ -393,6 +394,10 @@ namespace Hackathon
             if (rightStop)
             {
                 drawCenter(rightSlap, new Vector2(430, 250), Color.White);
+                if (newPress(Keys.Right))
+                {
+                    washing.Play();
+                }
             }
             if (!gameEnd)
             {
