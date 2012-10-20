@@ -128,8 +128,8 @@ namespace Hackathon
             if (thisKeys.IsKeyDown(Keys.Left))
                 x_actionBox -= 1;
 
-            plateY += 2;
-            plateX -= 0.8;
+            plateY += 1.5;
+            plateX -= 0.6;
             if (plateY >= 800)
             {
                 plateX = 210;
