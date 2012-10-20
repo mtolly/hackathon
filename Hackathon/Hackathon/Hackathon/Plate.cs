@@ -38,17 +38,45 @@ namespace Hackathon
         public double y_reset { get; set; }
         public double x_reset { get; set; }
         public Texture2D plateContents { get; set; }
+        public bool finishedSliding { get; set; }
 
-        public void updatePlate()
+        public void origin()
         {
-            this.x_value += this.x_speed;
-            this.y_value += this.y_speed;
+            this.x_value = this.x_origin;
+            this.y_value = this.y_origin;
+            this.finishedSliding = false;
+        }
+
+        public void reset()
+        {
+            this.x_value = this.x_reset;
+            this.y_value = this.y_reset;
+            this.finishedSliding = false;
+        }
+
+        // Takes the value of slidingPlates from Game1, and returns a new value for it.
+        public int updatePlate(int slidingPlates)
+        {
+            bool sliding = slidingPlates != 0;
+            this.x_value += (sliding ? 3 : 1) * this.x_speed;
+            this.y_value += (sliding ? 3 : 1) * this.y_speed;
             if (this.y_value >= 650)
             {
-                this.x_value = this.x_reset;
-                //plate.y_value = plate.y_origin;
-                this.y_value = this.y_reset;
+                if (sliding)
+                {
+                    if (!finishedSliding)
+                        slidingPlates -= 1;
+                    finishedSliding = true;
+                }
+                else
+                {
+                    if (finishedSliding)
+                        this.origin();
+                    else
+                        this.reset();
+                }
             }
+                
 
             this.in_zone = 450 <= this.y_value && this.y_value < 575;
 
@@ -65,6 +93,8 @@ namespace Hackathon
             {
                 this.plateColor = Color.White;
             }
+
+            return slidingPlates;
         }
     }
 }

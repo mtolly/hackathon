@@ -224,15 +224,10 @@ namespace Hackathon
 
             for (int i = 0; i < AllPlates.Length; i++)
             {
-                if (!leftStop && (i < 4))
+                if ((!leftStop && (i < 4)) || (!rightStop && (i >= 4)))
                 {
-                    AllPlates[i].updatePlate();
+                    slidingPlates = AllPlates[i].updatePlate(slidingPlates);
                 }
-                if (!rightStop && (i >= 4))
-                {
-                    AllPlates[i].updatePlate();
-                }
-
             }
 
             mouse_x = thisMouse.X;
@@ -241,11 +236,34 @@ namespace Hackathon
 
             firstFrame = false;
 
+            if (leftStop && rightStop)
+            {
+                winning = this.isCorrect();
+                if (winning)
+                {
+                    currentScore += 200;
+                    slidingPlates = 8;
+                    madFace = 0;
+                    leftStop = false;
+                    rightStop = false;
+                }
+                else
+                {
+                    currentScore -= 100;
+                    madFace++;
+                    leftStop = false;
+                    rightStop = false;
+                }
+            }
+
             winning = this.isCorrect() && leftStop && rightStop;
             if (winning) currentScore += 200;
 
             base.Update(gameTime);
         }
+
+        int slidingPlates = 0;
+        int madFace = 0;
 
         private int mod(int x, int m)
         {
@@ -309,7 +327,7 @@ namespace Hackathon
             spriteBatch.Draw(question, new Vector2(270, 125), Color.White);
 
             spriteBatch.Draw(scoreboard, new Vector2(310, 15), Color.White);
-            spriteBatch.DrawString(font, "Score: " + currentScore, new Vector2(313, 15), Color.MintCream);
+            spriteBatch.DrawString(font, "Score: " + currentScore + " " + slidingPlates, new Vector2(313, 15), Color.MintCream);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
             spriteBatch.End();
 
