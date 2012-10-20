@@ -10,14 +10,16 @@ namespace Hackathon
     class Question
     {
         public Texture2D question { get; set; }
-        public LinkedList<Texture2D> left_answers { get; set; }
+        public Texture2D left_answer { get; set; }
+        public LinkedList<Texture2D> left_duds { get; set; }
         public Texture2D right_answer { get; set; }
 
         public Question(String directory, ContentManager content)
         {
             this.question = content.Load<Texture2D>(directory + "/question");
-            this.left_answers = new LinkedList<Texture2D>();
-            for (int i = 0; i < 4; i++)
+            this.left_answer = content.Load<Texture2D>(directory + "/left_answer");
+            this.left_duds = new LinkedList<Texture2D>();
+            for (int i = 0; i < 3; i++)
             {
                 this.left_answers.AddLast(content.Load<Texture2D>(directory + "/left_answer_" + i));
             }
