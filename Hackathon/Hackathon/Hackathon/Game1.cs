@@ -35,10 +35,10 @@ namespace Hackathon
         List<Texture2D> left_answers;
         List<Texture2D> right_answers;
 
-        Plate[] AllPlates = { new Plate(220, 30, -0.5, 1.5, 30, 225, null), 
-                              new Plate(265, -120, -0.5, 1.5, 30, 225, null), 
-                              new Plate(315, -270, -0.5, 1.5, 30, 225, null), 
-                              new Plate(370, -420, -0.5, 1.5, 30, 225, null), 
+        Plate[] AllPlates = { new Plate(220, 30, -0.5, 1.5, 30, 220, null), 
+                              new Plate(265, -120, -0.5, 1.5, 30, 220, null), 
+                              new Plate(315, -270, -0.5, 1.5, 30, 220, null), 
+                              new Plate(370, -420, -0.5, 1.5, 30, 220, null), 
 
                               new Plate(540, 30, 0.2, 1.5, 30, 540, null), 
                               new Plate(520, -120, 0.2, 1.5, 30, 540, null), 
