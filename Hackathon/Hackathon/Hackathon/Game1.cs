@@ -346,12 +346,10 @@ namespace Hackathon
                 spriteBatch.Draw(AllPlates[i].plateContents, new Vector2((int)Math.Ceiling(AllPlates[i].x_value + (150 * scale_factor - (1.25 * AllPlates[i].plateContents.Width * (scale_factor)))), (int)Math.Ceiling(AllPlates[i].y_value - 100)), null, AllPlates[i].plateColor, 0f, Vector2.Zero, new Vector2((((float)AllPlates[i].y_value + 170) / (670)), (((float)AllPlates[i].y_value + 170) / (670))), SpriteEffects.None, 0f);
             }
 
-            spriteBatch.DrawString(font, winning ? "A Winner is You!" : "No Can Haz Pts", new Vector2(300,100), Color.Blue);
-
             spriteBatch.Draw(question, new Vector2(270, 125), Color.White);
 
             spriteBatch.Draw(scoreboard, new Vector2(310, 15), Color.White);
-            spriteBatch.DrawString(font, "Score: " + currentScore + " " + slidingPlates, new Vector2(313, 15), Color.MintCream);
+            spriteBatch.DrawString(font, "Score: " + currentScore, new Vector2(313, 15), Color.MintCream);
             spriteBatch.Draw(cursor, new Vector2(mouse_x, mouse_y), mouse_down ? Color.Red : Color.White);
             spriteBatch.End();
 
